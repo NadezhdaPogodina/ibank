@@ -51,6 +51,7 @@ public class AuthTest {
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $(By.className("button__text")).click();
+        $("[data-test-id='error-notification'] .notification__content");
         $("[data-test-id='error-notification'] .notification__content").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"));
         $("[data-test-id='error-notification'] .notification__content").shouldBe((Condition.visible));
 
