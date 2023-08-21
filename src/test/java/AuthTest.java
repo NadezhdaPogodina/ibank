@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static ru.netology.testmode.data.DataGenerator.Registration.getRegisteredUser;
@@ -50,9 +51,9 @@ public class AuthTest {
         $("[data-test-id='login'] input").setValue(blockedUser.getLogin());
         $("[data-test-id='password'] input").setValue(blockedUser.getPassword());
         $(By.className("button__text")).click();
-        $("[data-test-id='error-notification] .notification__title");
-        $("[data-test-id='error-notification] .notification__title").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"));
-        $("[data-test-id='error-notification] .notification__title").shouldBe((Condition.visible));
+        $("[data-test-id='error-notification'] .notification__content").shouldHave(Condition.text("Ошибка! Пользователь заблокирован"));
+        $("[data-test-id='error-notification'] .notification__content").shouldBe((Condition.visible));
+
     }
 
     @Test
